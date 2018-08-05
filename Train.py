@@ -6,9 +6,10 @@
 ############################################################################################
 
 import os, glob, random, cv2, caffe, lmdb, json
-import numpy as np
-from caffe.proto import caffe_pb2
 
+import numpy as np
+
+from caffe.proto import caffe_pb2
 from components.caffe import CaffeHelper
 
 class Train():
@@ -42,7 +43,7 @@ class Train():
 
         self.labels = open(self._confs["ClassifierSettings"]["labels"],"w")
         self.labels.write("classes\n")
-        
+
         for dirName in os.listdir(self._confs["ClassifierSettings"]["dataset_dir"]):
 
             path = os.path.join(self._confs["ClassifierSettings"]["dataset_dir"], dirName)
@@ -116,9 +117,9 @@ class Train():
                 count = count + 1
 
         self.trainer.close()
+
         print("DATA COUNT: "+str(count))
         print("")
-
         print("CREATING VALIDATION LMDB ")
         print("PLEASE WAIT THIS MAY TAKE A WHILE ")
         print("")
@@ -150,6 +151,7 @@ class Train():
                 count = count + 1
 
         self.validator.close()
+
         print("DATA COUNT: "+str(count))
 
     def computeMean(self):
@@ -160,6 +162,3 @@ class Train():
         
 Train = Train()
 Train.doIt()
-
-
-
