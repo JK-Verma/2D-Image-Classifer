@@ -19,6 +19,9 @@
 		"imageHeight": 227,
 		"trainLMDB": "data/train_lmdb",
 		"validationLMDB": "data/validation_lmdb",
+		"proto": "data/mean.binaryproto",
+		"labels": "data/label.txt",
+		"model": "model/",
 		"trainCut": 60,
 		"validationCut": 20,
 		"testCut": 20
