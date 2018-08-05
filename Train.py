@@ -27,7 +27,6 @@ class Train():
         self.CaffeHelper = CaffeHelper()
         
         with open('data/confs.json') as confs:
-
             self._confs = json.loads(confs.read())
 
     def doIt(self):
@@ -43,6 +42,7 @@ class Train():
 
         self.labels = open(self._confs["ClassifierSettings"]["labels"],"w")
         self.labels.write("classes\n")
+        
         for dirName in os.listdir(self._confs["ClassifierSettings"]["dataset_dir"]):
 
             path = os.path.join(self._confs["ClassifierSettings"]["dataset_dir"], dirName)
@@ -62,8 +62,6 @@ class Train():
 
                     path = os.path.join(directory, filename)
                     self.trainData.append(path)
-
-                    
 
                 else:
 
